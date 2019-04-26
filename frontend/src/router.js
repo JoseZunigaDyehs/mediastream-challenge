@@ -5,14 +5,17 @@ import * as actions from "./actions/index";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-import Main from "./components/main/Main";
+import Main from "./components/main/main";
 import MoviesFavs from './components/movies/movie-favs';
 import MovieDetails from './components/movies/movie-details';
 import NotFound from "./components/not-found/NotFound";
-import Header from "./components/header/Header";
+import Header from "./components/header/header";
 
+/**
+ * Ruteo de la APP
+ * Conexión con Redux
+ */
 export class Router extends Component {
-  //Lógica para rutas
   getContent() {
     return (
       <BrowserRouter>

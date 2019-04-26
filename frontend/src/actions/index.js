@@ -1,6 +1,13 @@
 import { API_URL, API_KEY } from "./constants";
 import axios from "axios";
 
+/**
+ * Maneja todas las acciones
+ * 
+ * Por cada llamado a una API, hay una funciones que retornan una acción para el manejo de la store
+ *
+ */
+
 //MOVIES
 export function getPopularMovies() {
   return function action(dispatch) {
@@ -28,18 +35,15 @@ export function getPopularMovies() {
     );
   };
 }
-
 function getPopularMoviesStart() {
   return { type: "GET_POPULAR_MOVIES_START" };
 }
-
 function getPopularMoviesError(error) {
   return { type: "GET_POPULAR_MOVIES_ERROR", error };
 }
 function getPopularMoviesEnd(data) {
   return { type: "GET_POPULAR_MOVIES_END", data };
 }
-
 export function addToFavMovie(id){
   return function action(dispatch){
     dispatch({type:'ADD_TO_FAV_MOVIE', id})
@@ -76,7 +80,6 @@ export function getReviewMovie(id) {
 function getReviewMovieStart() {
   return { type: "GET_REVIEW_MOVIE_START" };
 }
-
 function getReviewMovieError(error) {
   return { type: "GET_REVIEW_MOVIE_ERROR", error };
 }
