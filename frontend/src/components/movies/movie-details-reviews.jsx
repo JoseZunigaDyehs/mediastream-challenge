@@ -9,7 +9,7 @@ const MovieDetailsReviews = (props) => {
                 <div className="review" key={review.get('id')}>
                     <p><strong>Autor: </strong>{review.get('author')}</p>
                     <p><strong>Contenido: </strong>{review.get('content')}</p>
-                    <a href={review.get('url')}>Visitar review</a>
+                    <a target="_blank" rel="noopener noreferrer" href={review.get('url')}>Visitar review</a>
                 </div>
             )
         })

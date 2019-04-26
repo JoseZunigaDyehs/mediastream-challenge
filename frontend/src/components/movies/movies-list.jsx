@@ -29,7 +29,7 @@ export default class MoviesList extends Component {
           <td>{movie.vote_average}</td>
           <td>{movie.release_date}</td>
           <td>
-          <Link to={`/movie/${movie.id}`} className="btn m-r-10">Ver detalle</Link>
+            <Link to={`/movie/${movie.id}`} className="btn m-r-10">Ver detalle</Link>
             <button className="btn" onClick={() => {
               this.addToFavMovie(movie.id);
             }}>Agregar a favorito</button>
@@ -64,7 +64,15 @@ export default class MoviesList extends Component {
   }
 
   render = () => {
-    return this.content();
+
+    return (
+      <React.Fragment>
+        <div className="title">
+          <h1>Películas populares</h1>
+        </div>
+        {this.content()}
+      </React.Fragment>
+    )
   }
 }
 

@@ -16,6 +16,7 @@ export default class MovieDetails extends Component {
         }
         this.props.getReviewMovie(movieId);
     }
+
     fillMovie = () => {
         const { moviesStates, reviewStates } = this.props,
             movieId = parseInt(this.props.match.params.id),
@@ -32,6 +33,7 @@ export default class MovieDetails extends Component {
             </div>
         )
     }
+
     content = () => {
         const { moviesStates, reviewStates } = this.props,
             error = moviesStates.get('error'),
@@ -47,6 +49,7 @@ export default class MovieDetails extends Component {
             </IsFetching>
         )
     }
+    
     render() {
         return (
             <React.Fragment>

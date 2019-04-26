@@ -91,6 +91,9 @@ hr {
   display: flex;
   width: 100%;
   justify-content: center;
+  h1{
+    color: $primary;
+  }
 }
 /*------------------------------------------------------------------------------Headlines */
 h1, h2, h3, h4, h5, h6 {
@@ -132,6 +135,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 5px;
     text-transform: uppercase;
     text-decoration: none;
+    font-size: $h3-size;
     &:hover{
       background-color: darken($primary, 5%);
       color: darken($link-color, 15%);
@@ -190,6 +194,8 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 2rem;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid $primary;
+  margin-bottom: 2rem;
   span{
     padding: 2rem;
   }
@@ -240,11 +246,25 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 2rem;
   .movie-info{
     width: 35%;
+    padding: 2rem;
     p{
       margin-bottom: 1rem;
     }
   }
   .movie-reviews{
     width: 65%;
+    h1{
+      color: $primary;
+    }
+    .review{
+      background-color: $primary;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      color: $body-bg;
+      border-radius: .5rem;
+      a{
+        color: $body-bg;
+      }
+    }
   }
 }

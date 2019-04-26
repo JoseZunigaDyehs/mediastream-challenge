@@ -24,12 +24,12 @@ export default class MoviesFavs extends Component {
   content = () => {
     const { moviesStates } = this.props,
       moviesFavs = moviesStates.get('moviesFavs');
-    if (moviesFavs.size === 0){
-        return (
-            <div className='container'>
-                <p>No existen favoritos</p>
-            </div>
-        )
+    if (moviesFavs.size === 0) {
+      return (
+        <div className='container'>
+          <p>No existen favoritos</p>
+        </div>
+      )
     }
     return (
       <div className='container'>
@@ -52,7 +52,14 @@ export default class MoviesFavs extends Component {
   }
 
   render = () => {
-    return this.content();
+    return (
+      <React.Fragment>
+        <div className="title">
+          <h1>Favoritas</h1>
+        </div>
+        {this.content()}
+      </React.Fragment>
+    )
   }
 }
 
