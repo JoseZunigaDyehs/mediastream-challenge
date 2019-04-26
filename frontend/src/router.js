@@ -13,7 +13,7 @@ import Header from "./components/header/header";
 
 /**
  * Ruteo de la APP
- * Conexión con Redux
+ * 
  */
 export class Router extends Component {
   getContent() {
