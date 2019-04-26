@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types'
 
 export default class MoviesList extends Component {
   shouldComponentUpdate = (nextProps) => {
-    return (nextProps.movieList !== this.props.movieList)
+    return (nextProps.moviesStates !== this.props.moviesStates)
+  }
+  addToFavMovie = (id) => {
+    this.props.addToFavMovie(id);
   }
   orderByPopularity = (movieList) => {
     return movieList.toJS().sort((a, b) => {
@@ -17,36 +21,39 @@ export default class MoviesList extends Component {
     })
   }
   fillMovies = (movieList) => {
-    return movieList.map((movie,i)=>{
-      return(
+    return movieList.map((movie, i) => {
+      return (
         <tr key={i}>
           <td>{movie.title}</td>
-          <td>{movie.release_date}</td>
           <td>{movie.popularity}</td>
           <td>{movie.vote_average}</td>
+          <td>{movie.release_date}</td>
           <td>
-            <button>Ver Detalle</button>
-            <button>Agregar a favoritos</button>
+          <Link to={`/movie/${movie.id}`} className="btn m-r-10">Ver detalle</Link>
+            <button className="btn" onClick={() => {
+              this.addToFavMovie(movie.id);
+            }}>Agregar a favorito</button>
           </td>
         </tr>
       )
     });
   }
   content = () => {
-    const { movieList } = this.props;
-    if(movieList.size===0) return null;
+    const { moviesStates } = this.props,
+      movieList = moviesStates.get('popularMovies');
+    if (movieList.size === 0) return null;
     const orderByPopularity = this.orderByPopularity(movieList);
     return (
       <div className='container'>
         <table>
           <thead>
-          <tr>
-            <th>Título</th>
-            <th>Fecha de salida</th>
-            <th>Popularidad</th>
-            <th>Promedio de votos</th>
-            <th>Acciones</th>
-          </tr>
+            <tr>
+              <th>Título</th>
+              <th>Popularidad</th>
+              <th>Promedio de votos</th>
+              <th>Fecha de salida</th>
+              <th>Acciones</th>
+            </tr>
           </thead>
           <tbody>
             {this.fillMovies(orderByPopularity)}
@@ -62,5 +69,5 @@ export default class MoviesList extends Component {
 }
 
 MoviesList.propTypes = {
-  movieList: PropTypes.any.isRequired
+  moviesStates: PropTypes.any.isRequired
 }

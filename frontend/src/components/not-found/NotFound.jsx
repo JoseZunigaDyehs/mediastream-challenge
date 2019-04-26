@@ -1,9 +1,11 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const NotFound = () => {
     return (
-        <div className="wrapper">
-            <div className="box">Esta página no existe</div>
+        <div className="notfound">
+            <p>Esta página no existe</p>
+            <Link to="/">Volver al inicio</Link>
         </div>
     );
 }

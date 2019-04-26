@@ -6,30 +6,45 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 import Main from "./components/main/Main";
-import NotFound from './components/not-found/NotFound';
-import Header from './components/header/Header';
-
+import MoviesFavs from './components/movies/movie-favs';
+import MovieDetails from './components/movies/movie-details';
+import NotFound from "./components/not-found/NotFound";
+import Header from "./components/header/Header";
 
 export class Router extends Component {
   getContent() {
     return (
-      <BrowserRouter basename="/admin">
-        <div>
+      <BrowserRouter>
+        <React.Fragment>
           <Header {...this.props} />
-          <div className="main-content">
-            <Switch>
-              <Route
-                key="home"
-                exact
-                path="/"
-                render={props => {
-                  return <Main {...this.props} {...props} />;
-                }}
-              />
-              <Route component={NotFound} />
-            </Switch>
-          </div>
-        </div>
+          <Switch>
+            <Route
+              key="home"
+              exact
+              path="/"
+              render={props => {
+                return <Main {...this.props} {...props} />;
+              }}
+            />
+            <Route
+              key="detail-movie"
+              exact
+              path="/movie/:id"
+              render={props => {
+                return <MovieDetails {...this.props} {...props} />;
+              }}
+            />
+            <Route
+              key="favs"
+              exact
+              path="/favs/"
+              render={props => {
+                return <MoviesFavs {...this.props} {...props} />;
+              }}
+            />
+            <Route component={NotFound} />
+          </Switch>
+        </React.Fragment>
       </BrowserRouter>
     );
   }
