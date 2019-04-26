@@ -1,0 +1,37 @@
+$font-family-base: 'Lato', sans-serif;//Familia tipográfica base
+$line-height-base: 150%;//Line height base
+$font-size-base: 12;//Tamaño base en pixeles
+$padding-base: #{(10 / $font-size-base)}rem;
+
+$link-color: #276AA6;//Color del link principal
+$link-hover-color: darken($link-color, 15%);
+$body-bg: #000000;//Fondo del body
+
+$h1-size: #{(18 / $font-size-base)}rem;
+$h2-size: #{(16 / $font-size-base)}rem;
+$h3-size: #{(14 / $font-size-base)}rem;
+$h4-size: #{(13 / $font-size-base)}rem;
+$h5-size: #{(12 / $font-size-base)}rem;
+$h6-size: #{(10 / $font-size-base)}rem;
+
+$margin: 20px; //Margen general
+
+/*----Colores----*/
+$titles: #768491;
+$navigation-titles: #C9E1F7;
+$dark-text-color: #9D9999;
+$text-color: #848383;
+$light-text-color: #4A4A4A;
+$lighter-text-color: #BEBBBB;
+$tool-column-bg: #F8F8F8;
+
+$primary: #00C165;
+$secondary: #276AA6;
+$third: #43C7E9;
+
+$border-color: #E8E8E8; 
+$input-border-color: #E8E8E8;
+
+$red: #FF5C55;
+$green: #27CE3F;
+$yellow: #FEBF29;

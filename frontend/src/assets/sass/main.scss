@@ -1,0 +1,164 @@
+/*------------------------------------------------------------------------------Fonts */
+@import "fonts";
+/*------------------------------------------------------------------------------Variables */
+@import "variables";
+/*------------------------------------------------------------------------------Mixins */
+@import "mixins";
+
+/*------------------------------------------------------------------------------Generales */
+html {
+  font-size: #{$font-size-base}px;
+}
+
+body {
+  font-family: $font-family-base;
+  line-height: $line-height-base;
+  background-color: $body-bg;
+  font-size: #{$font-size-base}px;
+  -webkit-backface-visibility: hidden;
+  color: $dark-text-color;
+  &.preload {
+    overflow: hidden;
+  }
+}
+
+button {
+  font-family: $font-family-base;
+}
+
+.button-reset {
+    @include appearance(none);
+    background: transparent;
+    border-radius: 0px;
+    border: 0px;
+    outline: 0px;
+    padding: 0px;
+  }
+
+a {
+  color: $link-color;
+  text-decoration: underline;
+  outline: 0 none;
+  transition: all 350ms ease;
+  &:hover {
+    color: darken($link-color, 15%);
+    outline: 0 none;
+    text-decoration: none;
+  }
+  &:focus {
+    outline: 0 none;
+  }
+}
+
+ul {
+  margin-left: 0;
+}
+
+p {
+  font-size: 1rem;
+  margin: 0;
+  line-height: $line-height-base;
+  margin-bottom: $margin;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+iframe {
+  width: 100%;
+}
+
+hr {
+  width: 100%;
+  margin: 0;
+  border-color: $border-color;
+}
+
+/*------------------------------------------------------------------------------Headlines */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    color: $titles;
+    line-height: 120%;
+    margin-bottom: 10px;
+    font-weight: 700;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  
+  h1 {font-size: $h1-size}
+  h2 {font-size: $h2-size}
+  h3 {font-size: $h3-size;}
+  h4 {font-size: $h4-size;}
+  h5 {font-size: $h5-size}
+  h6 {font-size: $h6-size}
+
+  /*------------------------------------------------------------------------------Buttons */
+.btn {
+    @extend .button-reset;
+    font-family: $font-family-base;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    text-align: center;
+    padding: 15px 50px;
+    width: auto;
+    height: auto;
+    line-height: 120%;
+    transition: background 300ms ease;
+    color: #F2F2F2;
+    transition: all 350ms ease;
+    background-color: $primary;
+    font-weight: 700;
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    &:hover{
+      background-color: darken($primary, 5%);
+    }
+    &.btn-middle{
+      text-transform: none;
+      padding: 10px 20px;
+    }
+    &.btn-full{
+      width: 100%;
+    }
+    &.btn-transparent{
+      background-color: transparent;
+      border: 0 none;
+      padding: 10px;
+      &:hover{
+        background-color: #f5f5f5
+      }
+    }
+    &.btn-secondary{
+      background-color: $secondary;
+      &:hover{
+        background-color: darken($secondary, 5%);
+      }
+    }
+    &.btn-third{
+      background-color: $third;
+      &:hover{
+        background-color: darken($third, 5%);
+      }
+    }
+    &.btn-line{
+      border: 1px solid $border-color;
+      &:hover{
+        border-color: $secondary;
+      }
+    }
+    &.btn-to-the-right{
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
+    &.btn-icon{
+      width: 32px;
+      height: 32px;
+      padding: 10px 0;
+    }
+  }
+  
