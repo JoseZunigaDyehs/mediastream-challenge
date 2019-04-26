@@ -4,17 +4,19 @@
 @import "variables";
 /*------------------------------------------------------------------------------Mixins */
 @import "mixins";
+/*------------------------------------------------------------------------------Animate */
+@import "animate";
 
 /*------------------------------------------------------------------------------Generales */
 html {
-  font-size: #{$font-size-base}px;
+  font: 300 62.5% "Geomanist";
 }
 
 body {
   font-family: $font-family-base;
   line-height: $line-height-base;
   background-color: $body-bg;
-  font-size: #{$font-size-base}px;
+  font-size: $font-size-base;
   -webkit-backface-visibility: hidden;
   color: $dark-text-color;
   &.preload {
@@ -72,6 +74,14 @@ hr {
   width: 100%;
   margin: 0;
   border-color: $border-color;
+}
+
+.container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
 }
 
 /*------------------------------------------------------------------------------Headlines */
@@ -162,3 +172,43 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
   
+/*------------------------------------------------------------------------------Header */
+
+.header{
+  background-color: $body-bg;
+  color: $link-color;
+  width: 100%;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+/*------------------------------------------------------------------------------Loader */
+
+.loader {
+  border: 3px solid #cccccc;
+  border-top: 3px solid $link-color;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 35%;
+  &.static{
+    position: relative;
+  }
+}
+/*------------------------------------------------------------------------------Error */
+
+.error {
+  width: 100%;
+  color: $link-color;
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
