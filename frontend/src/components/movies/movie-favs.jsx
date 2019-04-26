@@ -27,7 +27,7 @@ export default class MoviesFavs extends Component {
     if (moviesFavs.size === 0) {
       return (
         <div className='container'>
-          <p>No existen favoritos</p>
+          <p>No existen películas favoritas</p>
         </div>
       )
     }

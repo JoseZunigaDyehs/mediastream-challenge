@@ -8,7 +8,7 @@ import Error from '../modules/error';
 export default class Main extends Component {
   shouldComponentUpdate = (nextProps) => {
     return (
-      !Immutable.is(nextProps.reviewStates,this.props.reviewStates) ||
+      !Immutable.is(nextProps.moviesStates,this.props.moviesStates) ||
       !Immutable.is(nextProps.reviewStates,this.props.reviewStates)
     )
   }

@@ -7,7 +7,7 @@ const Header = () => {
       <span>MediaStream Challenge</span>
       <div className="nav">
         <Link to="/">Home</Link>
-        <Link to={`/favs/`}>Favoritos</Link>
+        <Link to={`/favs/`}>Favoritas</Link>
       </div>
     </div>
   )

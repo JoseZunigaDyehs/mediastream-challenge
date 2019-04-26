@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 const MovieDetailsReviews = (props) => {
 
     const fillReviews = (reviews) => {
-        return reviews.map(review=> {
-            return(
+        return reviews.map(review => {
+            return (
                 <div className="review" key={review.get('id')}>
                     <p><strong>Autor: </strong>{review.get('author')}</p>
                     <p><strong>Contenido: </strong>{review.get('content')}</p>
@@ -21,7 +21,12 @@ const MovieDetailsReviews = (props) => {
             return (
                 <div className="movie-reviews">
                     <h1>Reviews</h1>
-                    <p>No existen reviews para mostrar</p>
+                    <div className="reviews">
+                        <div className="review">
+                            <p>No existen reviews para mostrar</p>
+                        </div>
+                    </div>
+
                 </div>
             )
         }
@@ -41,5 +46,5 @@ const MovieDetailsReviews = (props) => {
 export default MovieDetailsReviews;
 
 MovieDetailsReviews.propTypes = {
-    reviews: PropTypes.any.isRequired
+    reviews: PropTypes.any
 }

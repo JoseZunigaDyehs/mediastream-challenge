@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
+import Immutable from 'immutable';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types'
 
 export default class MoviesList extends Component {
   shouldComponentUpdate = (nextProps) => {
-    return (nextProps.moviesStates !== this.props.moviesStates)
+    return (
+      !Immutable.is(nextProps.moviesStates, this.props.moviesStates)
+    )
   }
   addToFavMovie = (id) => {
     this.props.addToFavMovie(id);
@@ -20,6 +23,22 @@ export default class MoviesList extends Component {
       return 0;
     })
   }
+  isInList = (id) => {
+    const { moviesStates } = this.props,
+      moviesFavs = moviesStates.get('moviesFavs');
+    if (moviesFavs.size === 0 || moviesFavs.filter(mov => mov.get('id') == id).size===0) {
+      return (
+        <button className="btn" onClick={() => {
+          this.addToFavMovie(id);
+        }}>Agregar a favorito</button>
+      )
+    } else {
+      return (
+        <button className="btn disabled" onClick={() => {
+        }}>En favorito</button>
+      )
+    }
+  }
   fillMovies = (movieList) => {
     return movieList.map((movie, i) => {
       return (
@@ -30,19 +49,20 @@ export default class MoviesList extends Component {
           <td>{movie.release_date}</td>
           <td>
             <Link to={`/movie/${movie.id}`} className="btn m-r-10">Ver detalle</Link>
-            <button className="btn" onClick={() => {
-              this.addToFavMovie(movie.id);
-            }}>Agregar a favorito</button>
+            {this.isInList(movie.id)}
+
           </td>
         </tr>
       )
     });
+
   }
   content = () => {
     const { moviesStates } = this.props,
       movieList = moviesStates.get('popularMovies');
     if (movieList.size === 0) return null;
     const orderByPopularity = this.orderByPopularity(movieList);
+
     return (
       <div className='container'>
         <table>

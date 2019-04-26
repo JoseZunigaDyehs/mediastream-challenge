@@ -10,12 +10,13 @@ export default class MovieDetails extends Component {
 
     shouldComponentUpdate = (nextProps) => {
         return (
-          !Immutable.is(nextProps.reviewStates,this.props.reviewStates) ||
+          !Immutable.is(nextProps.moviesStates,this.props.moviesStates) ||
           !Immutable.is(nextProps.reviewStates,this.props.reviewStates)
         )
       }
 
     componentWillMount = () => {
+        debugger
         const { moviesStates } = this.props,
             popularMovies = moviesStates.get('popularMovies'),
             movieId = parseInt(this.props.match.params.id);
@@ -30,6 +31,7 @@ export default class MovieDetails extends Component {
         const { moviesStates, reviewStates } = this.props,
             movieId = parseInt(this.props.match.params.id),
             popularMovies = moviesStates.get('popularMovies');
+            debugger
         if (popularMovies.size === 0 || reviewStates === null) {
             return null;
         }
