@@ -12,6 +12,7 @@ import NotFound from "./components/not-found/NotFound";
 import Header from "./components/header/Header";
 
 export class Router extends Component {
+  //Lógica para rutas
   getContent() {
     return (
       <BrowserRouter>

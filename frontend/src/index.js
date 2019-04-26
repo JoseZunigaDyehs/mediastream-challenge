@@ -7,6 +7,8 @@ import "./assets/sass/main.scss";
 
 import Router from './router.js';
 
+//Estructura con react redux,
+//Usé Immutable para  manejar la store
 ReactDOM.render(
   <Provider store={ store }>
     <Router />
